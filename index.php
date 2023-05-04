@@ -18,6 +18,12 @@ $router->map( 'GET', '/users', function () {
     $userController->list();
 }, 'list_users' );
 
+$router->map( 'GET', '/register', function () {
+    echo "<h1>Inscription</h1>";
+    $userController = new UserController;
+    require_once("src/View/register.php");
+}, 'register' );
+
 $router->map( 'GET', '/users/[i:id]', function ($id) {
     echo "<h1>Bienvenu sur la la page de l'utilisateur $id";
 }, 'id_user' );
