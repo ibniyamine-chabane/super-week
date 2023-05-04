@@ -19,6 +19,10 @@ class ComposerStaticInit92ecb30df6e3afb600dbb4e10ce5adda
         array (
             'Faker\\' => 6,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -29,6 +33,10 @@ class ComposerStaticInit92ecb30df6e3afb600dbb4e10ce5adda
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
