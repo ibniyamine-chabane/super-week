@@ -1,4 +1,6 @@
 <?php 
+use App\Controller\UserController;
+use Faker;
 
 require_once('vendor/autoload.php');
 
@@ -11,6 +13,9 @@ $router->map( 'GET', '/', function () {
 
 $router->map( 'GET', '/users', function () {
     echo "<h1>Bienvenu sur la liste des utilisateurs</h1>";
+    $userController = new UserController;
+    // $userController->addUser(); J'ai créer mes 15 utilisateur avec addUser.
+    $userController->list();
 }, 'list_users' );
 
 $router->map( 'GET', '/users/[i:id]', function ($id) {
