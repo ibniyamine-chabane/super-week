@@ -47,6 +47,8 @@ $router->map( 'POST', '/login', function () {
 }, 'login_post' );
 
 $router->map( 'GET', '/users/[i:id]', function ($id) {
+    $userController = new UserController;
+    $userController->findUser($id);    
     echo "<h1>Bienvenue sur la la page de l'utilisateur $id";
 }, 'id_user' );
 

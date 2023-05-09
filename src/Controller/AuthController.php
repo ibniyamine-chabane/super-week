@@ -78,6 +78,7 @@ class AuthController
             echo "<h1 style='color:red'>erreur dans le mail ou le mot de passe</h1>";
         }
     }
+    
 }
 
 ?>
