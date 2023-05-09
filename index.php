@@ -9,6 +9,7 @@ $router = new AltoRouter();
 $router->setBasePath('/super-week');
 
 $router->map( 'GET', '/', function () {
+    session_start();
     echo "<h1>Bienvenu sur l'acceueil</h1>";
 }, 'home' );
 
@@ -21,7 +22,7 @@ $router->map( 'GET', '/users', function () {
 
 $router->map( 'GET', '/register', function () {
     echo "<h1>Inscription</h1>";
-    $userController = new UserController;
+    // $userController = new UserController;
     require_once("src/View/register.php");
 }, 'register' );
 
@@ -31,6 +32,14 @@ $router->map( 'POST', '/register', function () {
     $userAuth->register(...$_POST);
     
 }, 'register_post' );
+
+$router->map( 'GET', '/login', function () {
+    echo "<h1>Se Connecter</h1>";
+    $userController = new UserController;
+    require_once("src/View/login.php");
+}, 'login' );
+
+
 
 $router->map( 'GET', '/users/[i:id]', function ($id) {
     echo "<h1>Bienvenu sur la la page de l'utilisateur $id";
