@@ -58,6 +58,7 @@ class AuthController
         foreach ($userData as $user) { 
 
             if ($email === $user['email'] && $password === $user['password']) {   
+                session_start();
                 $_SESSION['email'] = $email;
                 $id = $user['id'];  
                 $_SESSION['id_user'] = $id;

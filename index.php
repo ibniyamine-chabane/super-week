@@ -11,6 +11,7 @@ $router->setBasePath('/super-week');
 $router->map( 'GET', '/', function () {
     session_start();
     echo "<h1>Bienvenue sur l'accueil</h1>";
+
 }, 'home' );
 
 $router->map( 'GET', '/users', function () {
