@@ -30,20 +30,21 @@ class AuthController
             } else {
                 $isAvailable = true;
             }      
-            
-            if ($password != $password_confirm)
-            {
-                echo "la confirmation de mdp ne correspond pas";
-                $isPasswordOk = false;
-                break;
-            } else {
-                $isPasswordOk = true;
-            }    
+                           
         }
 
-        if ($isAvailable == true && $isPasswordOk = true) 
+        if ($password != $password_confirm)
+            {
+                echo "<h1 style='color:red'>la confirmation de mdp ne correspond pas</h1>";
+                $isPasswordOk = false;
+            } else {
+                $isPasswordOk = true;
+            }
+
+        if ($isAvailable == true && $isPasswordOk == true) 
         {
-        $usermodel->registerUser($email, $firstname, $lastname, $password); 
+            $usermodel->registerUser($email, $firstname, $lastname, $password); 
+            echo "<h1 style='color:green'>inscription réussi</h1>";
         }
     }
 }
