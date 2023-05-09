@@ -72,7 +72,7 @@ class AuthController
         if( $logged ) {
             echo "<h1 style='color:green'>vous êtes connecté</h1>";
 
-            header('Location: ');
+            header('Location: /super-week');
         } else {
             echo "<h1 style='color:red'>erreur dans le mail ou le mot de passe</h1>";
         }
