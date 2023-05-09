@@ -26,7 +26,12 @@ class UserController
         echo json_encode($usermodel->findAll());
     }
 
-
+    public function findUser($id) 
+    {
+        $_GET['id'] = $id;
+        $usermodel = new Usermodel;
+        echo json_encode($usermodel->find($id));
+    }
     
     
 }
