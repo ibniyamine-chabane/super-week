@@ -11,7 +11,8 @@ class UserController
         
         $faker = Faker\Factory::create();
         $usermodel = new UserModel;
-        for ($i=0; $i < 15; $i++) { 
+        for ($i=0; $i < 15; $i++) 
+        { 
             $firstname = $faker->firstName();
             $lastname = $faker->lastName();
             $email = strtolower("$firstname.$lastname@gmail.com");

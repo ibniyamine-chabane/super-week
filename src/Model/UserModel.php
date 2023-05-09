@@ -20,5 +20,13 @@ class UserModel
         $stmt->execute(array());
         return $allUser = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function registerUser($email ,$firstname, $lastname, $password)
+    {
+        $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
+        $query = "INSERT INTO user (email, first_name, last_name, password) VALUES ((?) ,(?) ,(?) ,(?))";
+        $stmt = $database->prepare($query);
+        $stmt->execute(array($email ,$firstname, $lastname, $password));
+    }
 }
 ?>
