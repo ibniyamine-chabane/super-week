@@ -37,5 +37,15 @@ class UserModel
         $stmt->execute(array($id));
         return $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function add($title, $content)
+    {
+        $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
+        $query = "INSERT INTO book (title, content, id_user) VALUES ((?) ,(?) ,(?))";
+        $stmt = $database->prepare($query);
+        $stmt->execute(array($title, $content, $_SESSION['id_user']));
+        return $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 ?>
