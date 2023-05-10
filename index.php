@@ -79,6 +79,11 @@ $router->map( 'GET', '/books/[i:id]', function ($id) {
     $userController->Book($id);    
 }, 'find_book' );
 
+$router->map( 'GET', '/logout', function () {
+    $userController = new UserController;
+    $userController->logout();
+}, 'log_out' );
+
 $match = $router->match();
 
 // call closure or throw 404 status
