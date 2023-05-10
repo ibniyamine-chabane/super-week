@@ -38,6 +38,19 @@ class UserController
         $usermodel = new Usermodel;
         $usermodel->add($title, $content);
     }
+
+    public function allbooks()
+    {
+        $usermodel = new Usermodel;
+        echo json_encode($usermodel->finAllBooks());
+    }
+
+    public function Book($id) 
+    {
+        $_GET['id'] = $id;
+        $usermodel = new Usermodel;
+        echo json_encode($usermodel->findBook($id));
+    }
     
 }
 ?>

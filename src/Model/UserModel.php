@@ -47,5 +47,22 @@ class UserModel
         return $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
-}
+    public function finAllBooks()
+    {
+        $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
+        $query = "SELECT * FROM book";
+        $stmt = $database->prepare($query);
+        $stmt->execute(array());
+        return $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function findBook($id)
+    {
+        $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
+        $query = "SELECT * FROM book WHERE id = (?)";
+        $stmt = $database->prepare($query);
+        $stmt->execute(array($id));
+        return $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+}   
 ?>
