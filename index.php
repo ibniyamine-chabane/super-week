@@ -68,6 +68,17 @@ $router->map( 'POST', '/books/write', function () {
     
 }, 'addbook_post' );
 
+$router->map( 'GET', '/books', function () {
+    echo "<h1>ajouter un livre</h1>";
+    $userController = new UserController;
+    $userController->allbooks();
+}, 'list_book' );
+
+$router->map( 'GET', '/books/[i:id]', function ($id) {
+    $userController = new UserController;
+    $userController->Book($id);    
+}, 'find_book' );
+
 $match = $router->match();
 
 // call closure or throw 404 status
