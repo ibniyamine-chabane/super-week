@@ -51,6 +51,13 @@ class UserController
         $usermodel = new Usermodel;
         echo json_encode($usermodel->findBook($id));
     }
+
+    public function logout() 
+    {
+        session_start(); 
+        session_destroy(); 
+        header("Location: /super-week");
+    }
     
 }
 ?>
