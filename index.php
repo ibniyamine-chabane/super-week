@@ -61,6 +61,13 @@ $router->map( 'GET', '/books/write', function () {
     require_once("src/View/book.php");
 }, 'addbook' );
 
+$router->map( 'POST', '/books/write', function () {
+    session_start();
+    $userController = new UserController;
+    $userController->addbook(...$_POST);
+    
+}, 'addbook_post' );
+
 $match = $router->match();
 
 // call closure or throw 404 status

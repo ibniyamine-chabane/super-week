@@ -33,6 +33,11 @@ class UserController
         echo json_encode($usermodel->find($id));
     }
     
+    public function addbook($title, $content)
+    {
+        $usermodel = new Usermodel;
+        $usermodel->add($title, $content);
+    }
     
 }
 ?>
