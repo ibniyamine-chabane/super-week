@@ -60,7 +60,8 @@ class AuthController
             if ($email === $user['email'] && $password === $user['password']) {   
                 session_start();
                 $_SESSION['email'] = $email;
-                $id = $user['id'];  
+                $id = $user['id']; 
+                $_SESSION['first_name'] = $user['first_name']; 
                 $_SESSION['id_user'] = $id;
                 $logged = true;
                 break;
