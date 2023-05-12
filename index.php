@@ -10,11 +10,15 @@ $router->setBasePath('/super-week');
 
 $router->map( 'GET', '/', function () {
     session_start();
+
     if (isset($_SESSION['first_name'])){
         echo '<h1>Bienvenue '.$_SESSION['first_name'].'</h1>';
     }else {
     echo "<h1>Bienvenue sur l'accueil</h1>";
     }   
+    require_once "src/View/button.php";
+
+
 }, 'home' );
 
 $router->map( 'GET', '/users', function () {
@@ -69,7 +73,7 @@ $router->map( 'POST', '/books/write', function () {
 }, 'addbook_post' );
 
 $router->map( 'GET', '/books', function () {
-    echo "<h1>ajouter un livre</h1>";
+    echo "<h1>les livres</h1>";
     $userController = new UserController;
     $userController->allbooks();
 }, 'list_book' );
