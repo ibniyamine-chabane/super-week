@@ -1,3 +1,7 @@
+<?php
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,15 @@
     <title>form</title>
 </head>
 <body>
+    
+        <label for="id">saisir l'id de l'utilisateur</label>
+        <input type="number" name="id-user" id="id-user">
+        <button id="getUser-btn">valider</button>
+        <br>
+        <label for="id">saisir l'id du livre</label>
+        <input type="number" name="id-book" id="id-book">
+        <button id="getBook-btn">valider</button>
+        <br>
     <button id="users-btn">Users</button>
     <button id="books-btn">Books</button>
     <div id="content"></div>
