@@ -4,12 +4,13 @@ use PDO;
 class UserModel 
 {
 
-    public function insert($email ,$firstname, $lastname)
+    public function insert($email ,$firstname, $lastname, $password)
     {
         $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
-        $query = "INSERT INTO user (email, first_name, last_name) VALUES ((?) ,(?) ,(?))";
+        $query = "INSERT INTO user (email, first_name, last_name, password) VALUES ((?) ,(?) ,(?) ,(?))";
         $stmt = $database->prepare($query);
-        $stmt->execute(array($email, $firstname, $lastname));
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->execute(array($email, $firstname, $lastname, $password));
     }
 
     public function findAll() 
@@ -26,6 +27,7 @@ class UserModel
         $database = new PDO('mysql:host=localhost;dbname=superweek;charset=utf8;port=3307', 'root', '');
         $query = "INSERT INTO user (email, first_name, last_name, password) VALUES ((?) ,(?) ,(?) ,(?))";
         $stmt = $database->prepare($query);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->execute(array($email ,$firstname, $lastname, $password));
     }
 
