@@ -22,14 +22,14 @@ $router->map( 'GET', '/', function () {
 }, 'home' );
 
 $router->map( 'GET', '/users', function () {
-    echo "<h1>Bienvenue sur la liste des utilisateurs</h1>";
+    // echo "<h1>Bienvenue sur la liste des utilisateurs</h1>";
     $userController = new UserController;
-    // $userController->addUser(); J'ai créer mes 15 utilisateur avec addUser.
+    //$userController->addUser(); //J'ai créer mes 15 utilisateur avec addUser.
     $userController->list();
 }, 'list_users' );
 
 $router->map( 'GET', '/register', function () {
-    echo "<h1>Inscription</h1>";
+    // echo "<h1>Inscription</h1>";
     // $userController = new UserController;
     require_once("src/View/register.php");
 }, 'register' );
@@ -42,7 +42,7 @@ $router->map( 'POST', '/register', function () {
 }, 'register_post' );
 
 $router->map( 'GET', '/login', function () {
-    echo "<h1>Se Connecter</h1>";
+    // echo "<h1>Se Connecter</h1>";
     $userController = new UserController;
     require_once("src/View/login.php");
 }, 'login' );
@@ -56,7 +56,7 @@ $router->map( 'POST', '/login', function () {
 $router->map( 'GET', '/users/[i:id]', function ($id) {
     $userController = new UserController;
     $userController->findUser($id);    
-    echo "<h1>Bienvenue sur la la page de l'utilisateur $id";
+    // echo "<h1>Bienvenue sur la la page de l'utilisateur $id";
 }, 'id_user' );
 
 $router->map( 'GET', '/books/write', function () {
@@ -73,7 +73,7 @@ $router->map( 'POST', '/books/write', function () {
 }, 'addbook_post' );
 
 $router->map( 'GET', '/books', function () {
-    echo "<h1>les livres</h1>";
+    // echo "<h1>les livres</h1>";
     $userController = new UserController;
     $userController->allbooks();
 }, 'list_book' );

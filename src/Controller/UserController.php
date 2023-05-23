@@ -16,7 +16,8 @@ class UserController
             $firstname = $faker->firstName();
             $lastname = $faker->lastName();
             $email = strtolower("$firstname.$lastname@gmail.com");
-            $usermodel->insert($email, $firstname, $lastname);
+            $password = $faker->password();
+            $usermodel->insert($email, $firstname, $lastname, $password);
         } 
     }
 
